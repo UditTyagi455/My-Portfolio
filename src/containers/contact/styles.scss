@@ -43,6 +43,7 @@
                     .inputName, .inputEmail, .inputDescription{
                         width: 100%;
                         border: 2px solid var(--selected-theme-main-color);
+                        font-size: 1.8rem;
                         padding: 15px 10px;
                         transition: all 0.5s ease;
                         position: relative;

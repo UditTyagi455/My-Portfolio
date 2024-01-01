@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaReact, FaBars } from "react-icons/fa";
+import { FaBars } from "react-icons/fa";
 import { HiX } from "react-icons/hi";
 import { navMenus } from "./config";
 import './styles.scss';

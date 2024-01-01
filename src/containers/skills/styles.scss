@@ -6,9 +6,10 @@
 
         &__inner-content{
             display: flex;
-            flex: 1;
+            // flex: 1;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-end;  
+            justify-content: start;      
 
             &__category-text{
                 display: inline-block;
@@ -21,6 +22,7 @@
                 text-transform: uppercase;
                 padding: 5px 10px;
                 border-bottom: 2px solid var(--selected-theme-main-color);
+               
             }
 
             div{
@@ -28,7 +30,7 @@
             }
 
             .progressbar-wrapper{
-                padding-top: 50px;
+                padding-top: 60px;
 
                 p{
                     font-size: 1.6rem;

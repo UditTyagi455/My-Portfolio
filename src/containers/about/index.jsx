@@ -31,7 +31,7 @@ const About = () => {
           >
             <h3 className="developerContent">🚀 Passionate React Developer with 2 Years of Experience</h3>
             <p>
-            Hi there! 👋 I'm Udit Tyagi, a dedicated web developer with a focus on React Native and React.js. Over the past two years, I've been immersed in the world of front-end development, creating seamless and intuitive user experiences that leave a lasting impression.
+            Hi there! 👋 I'm Udit Tyagi, a dedicated Mobile App developer with a focus on React Native and React.js. Over the past two years, I've been immersed in the world of front-end development, creating seamless and intuitive user experiences that leave a lasting impression.
             </p>
             <h3 className="developerContent">What I Bring to the Table:</h3>
             <p><b>🌐 React Mastery:</b> My expertise lies in harnessing the power of React and React Native to build robust and scalable applications. From crafting responsive web interfaces to developing cross-platform mobile apps, I thrive on turning ideas into reality.</p>

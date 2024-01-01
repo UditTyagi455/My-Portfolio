@@ -49,13 +49,22 @@ export const skillsData = [
     label: "STATE MANAGEMENT LIBRARIES",
     data: [
       {
+        skillName: "MOBX",
+        percentage: "85",
+      },
+      {
         skillName: "REDUX",
         percentage: "90",
       },
+    ],
+  },
+  {
+    label: "LOCAL DATABASE",
+    data: [
       {
-        skillName: "MOBX",
+        skillName: "REALM/REACT",
         percentage: "85",
-      }
+      },
     ],
   },
 ];

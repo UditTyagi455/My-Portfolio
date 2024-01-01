@@ -2,16 +2,17 @@ import React,{useState} from "react";
 import PageHeaderContent from "../../components/pageHeaderContent";
 import { RiContactsFill } from "react-icons/ri";
 import "./styles.scss";
+import database from "../../firebase";
 
 const Contact = () => {
 
   const [name,setName] = useState("");
   const [email,setEmail] = useState("");
   const [description,setDescription] = useState("");
-  const [focus,setFocus] = useState({name: false,email: false,description: false})
+  const [focus,setFocus] = useState({name: false,email: false,description: false});
+  const [loading,setLoading] = useState(false)
 
   const onChangeHandler = (event,type) => {
-    console.log("what-value :::",event.target.value,type);
     if(type === "name")
     setName(event.target.value);
   if(type === "email")
@@ -42,6 +43,42 @@ setDescription(event.target.value);
   if(type === "description"){
     setFocus(v => ({...v,description:false}))
   }
+ }
+
+ const submitForm =async () => {
+  console.log("form-data :::",name,email,description);
+  if(email && email){
+    setLoading(true);
+    try {
+      const fetchData = await fetch("https://portfolio-662e4-default-rtdb.firebaseio.com/contact-us.json",{
+      method: "POST",
+      headers: {
+        "content-type": "applicaton/json"
+      },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        description: description
+      })
+    })
+    if(fetchData){
+      console.log("fetch-data ::",fetchData);
+      alert("Thank You !!");
+      setName("");
+      setEmail("");
+      setDescription("");
+    }
+    } catch (error) {
+      console.log("error ==>",error);
+    }
+    finally{
+      setLoading(false);
+    }
+    
+  }else{
+    alert("please fill email and name filled.s")
+  }
+  
  }
 
 
@@ -83,7 +120,9 @@ setDescription(event.target.value);
               </label>
             </div>
           </div>
-          <button>Submit</button>
+          <button type="submit" onClick={() => {
+            submitForm()
+          }}>{loading ? "Loading...." : "Submit"}</button>
         </div>
       </div>
     </section>
