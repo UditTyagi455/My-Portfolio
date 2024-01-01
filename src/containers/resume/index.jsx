@@ -68,7 +68,7 @@ const Resume = () => {
                   color: "var(--selected-theme-main-color)",
                   border: "1.5px solid var(--selected-theme-main-color)",
                 }}
-                date="2013 - 2017"
+                date="2020 - 2022"
                 iconStyle={{
                   background: "#181818",
                   color: "var(--selected-theme-main-color)",
@@ -76,8 +76,8 @@ const Resume = () => {
                 icon={<MdWork />}
               >
                 <div className="vertical-timeline-element-title-wrapper">
-                  <h3>{item.title}</h3>
-                  <h4>{item.subTitle}</h4>
+                  <h4>{item.title},{item.subTitle}</h4>
+                  {/* <h4>{item.subTitle}</h4> */}
                 </div>
                 <p className="vertical-timeline-element-stream-wrapper">{item.stream}</p>
                 <p className="vertical-timeline-element-description-wrapper">
