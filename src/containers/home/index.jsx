@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Animate } from "react-simple-animate";
 import { FaLinkedin,FaGithub,FaTwitter } from "react-icons/fa";
 import "./styles.scss";
 import MyPdf from '../../resume/udit_resume.pdf';
 import { Link } from "react-router-dom";
+import { getAnalytics, logEvent } from "firebase/analytics";
 
 const Home = () => {
+
+  useEffect(() => {
+    const analytics  = getAnalytics();
+    logEvent(analytics, 'home-page', {
+      name: "udit tyagi"
+    });
+  },[])
+
   function handleNavigateLinkedin(socalLogin) {
     if(socalLogin === "github"){
 
@@ -27,6 +36,20 @@ const Home = () => {
         "_blank"
       );
     }
+  }
+
+  const downloadResume = () => {
+    const analytics  = getAnalytics();
+    logEvent(analytics, 'resume-download', {
+      name: "udit tyagi"
+    })
+  }
+
+  const hireMe = () => {
+    const analytics  = getAnalytics();
+    logEvent(analytics, 'hireme', {
+      name: "udit tyagi"
+    });
   }
 
   return (
@@ -52,10 +75,10 @@ const Home = () => {
         <div className="contact-me">
           <div className="contact-me__Buttons">
           <div className="contact-me__buttons-wrapper">
-          <Link to={"/Udit-Tyagi/contact"}>Hire Me</Link>
+          <Link to={"/Udit-Tyagi/contact"} onClick={() => hireMe()}>Hire Me</Link>
           </div>
           <div className="contact-me__buttons-wrapper">
-            <a href={MyPdf} download="Udit-Resume.pdf">Download resume</a>
+            <a href={MyPdf} download="Udit-Resume.pdf" onClick={() => downloadResume()}>Download resume</a>
           </div>
           </div>
         

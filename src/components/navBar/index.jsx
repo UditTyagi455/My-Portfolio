@@ -23,6 +23,7 @@ const Navbar = () => {
                 <Link
                   to={item.to}
                   className="navbar__container__menu__item__links"
+                  onClick={() => setClick(!click)}
                 >
                   {item.label}
                 </Link>

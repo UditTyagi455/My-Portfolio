@@ -7,10 +7,11 @@ import About from "./containers/about";
 import Skills from "./containers/skills";
 import Resume from "./containers/resume";
 import Navbar from "./components/navBar";
-import particlesConfig from "./helpers/particlesConfig";
+import ParticleConfig from "./helpers/particlesConfig";
 import Theme from "./components/theme";
 import Portfolio from "./containers/portfolio";
 import Contact from "./containers/contact";
+import app from "./firebase";
 
 function App() {
   const particlesInit = async (main) => {
@@ -18,6 +19,9 @@ function App() {
   };
 
   const location = useLocation();
+  if(location.pathname === "/"){
+    location.pathname = "/Udit-Tyagi/"
+  }
   const renderParticleJsIfCurrentPageIsHomePage = location.pathname === "/Udit-Tyagi/";
 
   return (
@@ -26,7 +30,7 @@ function App() {
       {renderParticleJsIfCurrentPageIsHomePage && (
         <Particles
           id="particles"
-          options={particlesConfig}
+          options={ParticleConfig}
           init={particlesInit}
         />
       )}

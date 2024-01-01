@@ -2,7 +2,6 @@ import React,{useState} from "react";
 import PageHeaderContent from "../../components/pageHeaderContent";
 import { RiContactsFill } from "react-icons/ri";
 import "./styles.scss";
-import database from "../../firebase";
 
 const Contact = () => {
 
