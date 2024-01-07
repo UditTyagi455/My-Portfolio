@@ -50,6 +50,7 @@
                         z-index: 1;
                         background: transparent;
                         color: var(--selected-theme-main-color);
+                        resize: none;
                     }
                     .namelabel, .emaillabel, .descriptionlabel{
                         position: absolute;

@@ -19,10 +19,8 @@ function App() {
   };
 
   const location = useLocation();
-  if(location.pathname === "/"){
-    location.pathname = "/Udit-Tyagi/"
-  }
-  const renderParticleJsIfCurrentPageIsHomePage = location.pathname === "/Udit-Tyagi/";
+ 
+  const renderParticleJsIfCurrentPageIsHomePage = location.pathname === "/";
 
   return (
     <div className="App">
@@ -43,12 +41,12 @@ function App() {
         <Theme />
         <Routes>
           {/* create all routes */}
-          <Route path="/Udit-Tyagi/" index element={<Home />} />
-          <Route path="/Udit-Tyagi/about" element={<About />} />
-          <Route path="/Udit-Tyagi/skills" element={<Skills />} />
-          <Route path="/Udit-Tyagi/resume" element={<Resume />} />
-          <Route path="/Udit-Tyagi/portfolio" element={<Portfolio />} />
-          <Route path="/Udit-Tyagi/contact" element={<Contact />} />
+          <Route path="/" index element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/skills" element={<Skills />} />
+          <Route path="/resume" element={<Resume />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </div>
     </div>

@@ -47,7 +47,7 @@ const Portfolio = () => {
             >
               <div className="portfolio__content__cards__item__img-wrapper">
                 <a>
-                  <img src={item.image} alt="project image" />
+                  <img src={item.image} alt="project image" style={{width: "100%"}}/>
                 </a>
               </div>
               <div className="overlay">

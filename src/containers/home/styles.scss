@@ -26,20 +26,20 @@
 
   .contact-me {
     position: relative;
-    bottom: 500px;
+    // bottom: 500px;
     display: flex;
     flex-direction: column;
     gap: 10px;
     align-items: center;
-    margin-top: 10px;
-    &__Buttons{
+    margin-top: 25px;
+    &__Buttons {
       display: flex;
       flex-direction: row;
       gap: 10px;
     }
     &__buttons-wrapper {
       display: flex;
-     align-items: center;
+      align-items: center;
       button,
       a {
         cursor: pointer;
@@ -58,7 +58,7 @@
         }
       }
 
-      a{
+      a {
         padding: 10px 30px;
         text-decoration: none;
         text-align: center;
@@ -75,17 +75,21 @@
       }
     }
 
-    &__social_icons{
-display: flex;
-flex-direction: row;
-gap: 15px;
+    &__social_icons {
+      display: flex;
+      flex-direction: row;
+      gap: 15px;
     }
   }
 }
 @media only screen and (max-width: 550px) {
   .home__text-wrapper h1 {
     font-size: 2.5rem;
-    line-height: 3rem;
+    line-height: 4rem;
+    white-space: normal;
+    width: 100%;
+    text-align: center;
+    animation: none;
   }
   .home .contact-me__Buttons {
     display: flex;

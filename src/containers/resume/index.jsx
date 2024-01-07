@@ -20,9 +20,47 @@ const Resume = () => {
       <div className="timeline">
         <div className="timeline__experience">
           <h3 className="timeline__experience__header-text">Experience</h3>
+          <div className="show-me">
+            {data.experience.map((item) => {
+              return (
+                <div
+                  style={{
+                    border: "1.5px solid var(--selected-theme-main-color)",
+                    padding: "25px",
+                    margin: 15,
+                  }}
+                >
+                  <div syle={{ color: "white" }}>
+                    <h3 style={{ color: "var(--selected-theme-main-color)", fontSize: "20px" }}>
+                      {item.title}
+                    </h3>
+                    <h4 style={{ color: "white", fontSize: "15px" }}>
+                      {item.subTitle}
+                    </h4>
+                  </div>
+                  <ul className="vertical-timeline-element-description-wrapper">
+                    {item.description.map((item, i) => (
+                      <li
+                        key={i}
+                        style={{
+                          color: "white",
+                          fontSize: "15px",
+                          marginTop: "15px",
+                        }}
+                      >
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })}
+          </div>
+
           <VerticalTimeline
             layout="1-column"
             lineColor="var(--selected-theme-main-color)"
+            className="mobile-mode"
           >
             {data.experience.map((item) => (
               <VerticalTimelineElement
@@ -40,24 +78,58 @@ const Resume = () => {
                 }}
                 icon={<MdWork />}
               >
-                <div className="vertical-timeline-element-title-wrapper">
-                  <h3>{item.title}</h3>
-                  <h4>{item.subTitle}</h4>
+                <div>
+                  <div className="vertical-timeline-element-title-wrapper">
+                    <h3>{item.title}</h3>
+                    <h4>{item.subTitle}</h4>
+                  </div>
+                  <ul className="vertical-timeline-element-description-wrapper">
+                    {item.description.map((item, i) => (
+                      <li key={i}>{item}</li>
+                    ))}
+                  </ul>
                 </div>
-                <ul className="vertical-timeline-element-description-wrapper">
-                  {item.description.map((item, i) => (
-                    <li key={i}>{item}</li>
-                  ))}
-                </ul>
               </VerticalTimelineElement>
             ))}
           </VerticalTimeline>
         </div>
         <div className="timeline__education">
           <h3 className="timeline__education__header-text">Education</h3>
+
+          <div className="show-me">
+            {data.education.map((item) => {
+              return (
+                <div
+                  style={{
+                    border: "1.5px solid var(--selected-theme-main-color)",
+                    padding: "20px",
+                    margin: 15,
+                  }}
+                >
+                  <div syle={{ color: "white" }}>
+                    <h3 style={{ color: "var(--selected-theme-main-color)", fontSize: "20px" }}>
+                      {item.title}
+                    </h3>
+                    <h4 style={{ color: "white", fontSize: "15px" }}>
+                      {item.subTitle}
+                    </h4>
+                  </div>
+                  <p
+                    style={{ color: "white", fontSize: "15px", marginTop: 15 }}
+                  >
+                    {item.stream}
+                  </p>
+                  <p style={{ color: "white", fontSize: "15px" }}>
+                    {item.description}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
           <VerticalTimeline
             layout="1-column"
             lineColor="var(--selected-theme-main-color)"
+            className="mobile-mode"
           >
             {data.education.map((item) => (
               <VerticalTimelineElement
@@ -76,10 +148,14 @@ const Resume = () => {
                 icon={<MdWork />}
               >
                 <div className="vertical-timeline-element-title-wrapper">
-                  <h4>{item.title},{item.subTitle}</h4>
+                  <h4>
+                    {item.title},{item.subTitle}
+                  </h4>
                   {/* <h4>{item.subTitle}</h4> */}
                 </div>
-                <p className="vertical-timeline-element-stream-wrapper">{item.stream}</p>
+                <p className="vertical-timeline-element-stream-wrapper">
+                  {item.stream}
+                </p>
                 <p className="vertical-timeline-element-description-wrapper">
                   {item.description}
                 </p>

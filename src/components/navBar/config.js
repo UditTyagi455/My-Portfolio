@@ -1,26 +1,26 @@
 export const navMenus = [
   {
     label: "HOME",
-    to: "/Udit-Tyagi/",
+    to: "/",
   },
   {
     label: "ABOUT ME",
-    to: "/Udit-Tyagi/about",
+    to: "/about",
   },
   {
     label: "SKILLS",
-    to: "/Udit-Tyagi/skills",
+    to: "/skills",
   },
   {
     label: "RESUME",
-    to: "/Udit-Tyagi/resume",
+    to: "/resume",
   },
   {
     label: "PROJECTS",
-    to: "/Udit-Tyagi/portfolio",
+    to: "/portfolio",
   },
   {
     label: "CONTACT",
-    to: "/Udit-Tyagi/contact",
+    to: "/contact",
   }
 ];

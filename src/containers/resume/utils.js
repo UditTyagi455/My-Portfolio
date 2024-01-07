@@ -24,7 +24,7 @@ export const data = {
   education: [
     {
       title: "SHRI RAM COLLEGE OF MANAGEMENT",
-      subTitle: "MUZAFFARNAGAR, UTTAR PRADESH",
+      subTitle: " MUZAFFARNAGAR, UTTAR PRADESH",
       stream : "MASTER OF COMPUTER APPLICATION",
       description: "7 DGPA",
     }

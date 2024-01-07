@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Animate } from "react-simple-animate";
 import { FaLinkedin,FaGithub,FaTwitter } from "react-icons/fa";
 import "./styles.scss";
-import MyPdf from '../../resume/udit_resume.pdf';
+import Mypdf from "../../resume/udit_resume.pdf";
 import { Link } from "react-router-dom";
 import { getAnalytics, logEvent } from "firebase/analytics";
 
@@ -62,7 +62,7 @@ const Home = () => {
         </h1>
       </div>
       <Animate
-        play={false}
+        play={true}
         duration={1.5}
         delay={1}
         start={{
@@ -75,10 +75,10 @@ const Home = () => {
         <div className="contact-me">
           <div className="contact-me__Buttons">
           <div className="contact-me__buttons-wrapper">
-          <Link to={"/Udit-Tyagi/contact"} onClick={() => hireMe()}>Hire Me</Link>
+          <Link to={"/contact"} onClick={() => hireMe()}>Hire Me</Link>
           </div>
           <div className="contact-me__buttons-wrapper">
-            <a href={MyPdf} download="Udit-Resume.pdf" onClick={() => downloadResume()}>Download resume</a>
+            <a href={Mypdf} download="Udit-Resume.pdf" onClick={() => downloadResume()}>Download resume</a>
           </div>
           </div>
         

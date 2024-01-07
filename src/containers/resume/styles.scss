@@ -97,12 +97,29 @@
     }
   }
 }
+.show-me {
+  display: none;
+}
+
+.mobile-mode {
+  display: block;
+}
 
 @media only screen and (max-width: 768px) {
   .timeline {
     flex-direction: column;
     width: 100%;
 
+    .mobile-mode {
+      display: none;
+    }
+    .show-me {
+      display: block;
+    }
+
+    // .timeline__experience__vertical-timeline-component{
+    //   display: flex;
+    // }
     &__experience,
     &__education {
       width: 100%;

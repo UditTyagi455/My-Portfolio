@@ -74,6 +74,8 @@
         left: -110%;
         opacity: 1;
         transition: all 0.5s ease;
+        // height: 85vh;
+        overflow: hidden;
 
         &.active{
             background: #181818;
@@ -86,7 +88,7 @@
 
     .navbar__container__menu__item{
         border-bottom: 1px solid #282828;
-        margin: 0px;
+        margin-top: 5px;
         padding: 20px 0px;
     }
 
