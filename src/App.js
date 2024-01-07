@@ -20,7 +20,7 @@ function App() {
 
   const location = useLocation();
  
-  const renderParticleJsIfCurrentPageIsHomePage = location.pathname === "/";
+  const renderParticleJsIfCurrentPageIsHomePage = location.pathname === "/My-Portfolio";
 
   return (
     <div className="App">
@@ -41,12 +41,12 @@ function App() {
         <Theme />
         <Routes>
           {/* create all routes */}
-          <Route path="/" index element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/skills" element={<Skills />} />
-          <Route path="/resume" element={<Resume />} />
-          <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/My-Portfolio" index element={<Home />} />
+          <Route path="/My-Portfolio/about" element={<About />} />
+          <Route path="/My-Portfolio/skills" element={<Skills />} />
+          <Route path="/My-Portfolio/resume" element={<Resume />} />
+          <Route path="/My-Portfolio/portfolio" element={<Portfolio />} />
+          <Route path="/My-Portfolio/contact" element={<Contact />} />
         </Routes>
       </div>
     </div>
