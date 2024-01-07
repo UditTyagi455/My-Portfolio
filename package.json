@@ -1,7 +1,7 @@
 {
   "name": "portfolio-project-2022",
   "version": "0.1.0",
-  "homepage": "https://udittyagi455.github.io/My-Portfolio",
+  "homepage": "https://udittyagi455.github.io",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
