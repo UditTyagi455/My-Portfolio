@@ -3,10 +3,11 @@ import { Animate } from "react-simple-animate";
 import { FaLinkedin,FaGithub,FaTwitter } from "react-icons/fa";
 import "./styles.scss";
 import Mypdf from "../../resume/udit_resume.pdf";
-import { Link } from "react-router-dom";
 import { getAnalytics, logEvent } from "firebase/analytics";
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
+  const navigate = useNavigate();
 
   useEffect(() => {
     const analytics  = getAnalytics();
@@ -17,14 +18,12 @@ const Home = () => {
 
   function handleNavigateLinkedin(socalLogin) {
     if(socalLogin === "github"){
-
       window.open(
         "https://github.com/UditTyagi455",
         "_blank"
       );
     }
     if(socalLogin === "linkedin"){
-
       window.open(
         "https://www.linkedin.com/in/udit-tyagi-bb8057170/",
         "_blank"
@@ -50,6 +49,7 @@ const Home = () => {
     logEvent(analytics, 'hireme', {
       name: "udit tyagi"
     });
+    navigate("/My-Portfolio/contact")
   }
 
   return (
@@ -75,7 +75,7 @@ const Home = () => {
         <div className="contact-me">
           <div className="contact-me__Buttons">
           <div className="contact-me__buttons-wrapper">
-          <Link to={"/contact"} onClick={() => hireMe()}>Hire Me</Link>
+          <a onClick={() => hireMe()}>Hire Me</a>
           </div>
           <div className="contact-me__buttons-wrapper">
             <a href={Mypdf} download="Udit-Resume.pdf" onClick={() => downloadResume()}>Download resume</a>

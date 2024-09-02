@@ -1,9 +1,9 @@
 import ImageOne from "../../images/image1.jpg";
-import ImageTwo from "../../images/image2.jpg";
-import ImageThree from "../../images/project-image.avif";
-import ImageFour from "../../images/image4.jpg";
+import ImageTwo from "../../images/image2.png";
+import ImageThree from "../../images/image3.jpg";
+import ImageFour from "../../images/image4.webp";
 import ImageFive from "../../images/image5.jpg";
-import ImageSix from "../../images/code-image.avif";
+import ImageSix from "../../images/scanmaze.png";
 
 export const portfolioData = [
   {

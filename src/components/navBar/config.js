@@ -1,7 +1,7 @@
 export const navMenus = [
   {
     label: "HOME",
-    to: "/My-Portfolio/",
+    to: "/",
   },
   {
     label: "ABOUT ME",

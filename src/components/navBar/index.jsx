@@ -13,7 +13,7 @@ const Navbar = () => {
     <div>
       <nav className="navbar">
         <div className="navbar__container">
-          <Link to={"//My-Portfolio/"} className="navbar__container__logo">
+          <Link to={"/"} className="navbar__container__logo">
             {/* <FaReact size={30} /> */}
             <h2>UDIT</h2>
           </Link>
