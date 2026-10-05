@@ -1,17 +1,12 @@
 import "./App.scss";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
-import Home from "./containers/home";
-import About from "./containers/about";
-import Skills from "./containers/skills";
-import Resume from "./containers/resume";
 import Navbar from "./components/navBar";
 import ParticleConfig from "./helpers/particlesConfig";
 import Theme from "./components/theme";
-import Portfolio from "./containers/portfolio";
-import Contact from "./containers/contact";
-import app from "./firebase";
+import AppRoutes from "./routes";
+import { isHomePage } from "./config/routes";
 
 function App() {
   const particlesInit = async (main) => {
@@ -19,8 +14,8 @@ function App() {
   };
 
   const location = useLocation();
- 
-  const renderParticleJsIfCurrentPageIsHomePage = location.pathname === "/";
+
+  const renderParticleJsIfCurrentPageIsHomePage = isHomePage(location.pathname);
 
   return (
     <div className="App">
@@ -39,18 +34,11 @@ function App() {
       {/* main page content */}
       <div className="App__main-content-wrapper">
         <Theme />
-        <Routes>
-          {/* create all routes */}
-          <Route path="/"  exact index element={<Home />} />
-          <Route path="/My-Portfolio/about" element={<About />} />
-          <Route path="/My-Portfolio/skills" element={<Skills />} />
-          <Route path="/My-Portfolio/resume" element={<Resume />} />
-          <Route path="/My-Portfolio/portfolio" element={<Portfolio />} />
-          <Route path="/My-Portfolio/contact" element={<Contact />} />
-        </Routes>
+        <AppRoutes />
       </div>
     </div>
   );
 }
 
 export default App;
+

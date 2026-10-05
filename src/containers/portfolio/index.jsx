@@ -12,8 +12,6 @@ const Portfolio = () => {
     setFilterValue(id);
   };
 
-  console.log(filterValue);
-
   const filteredPortfolioData =
     filterValue === 1
       ? portfolioData
@@ -31,7 +29,7 @@ const Portfolio = () => {
             <li
               onClick={() => handleFilter(option.id)}
               key={`filter${option.id}`}
-              className={option.id === filterValue ? 'active' : ''}
+              className={option.id === filterValue ? "active" : ""}
             >
               {option.label}
             </li>
@@ -46,15 +44,22 @@ const Portfolio = () => {
               className="portfolio__content__cards__item"
             >
               <div className="portfolio__content__cards__item__img-wrapper">
-                <a>
-                  <img src={item.image} alt="project image" style={{width: "100%"}}/>
-                </a>
+                <img
+                  src={item.image}
+                  alt={item.projectName || "Portfolio showcase"}
+                  style={{ width: "100%" }}
+                />
               </div>
               <div className="overlay">
                 {hoveredIndex === key && (
                   <div>
                     <p>{item.projectName}</p>
-                    <button onClick={() => window.open(item.projectLink,"_blank")}>Visit</button>
+                    <button
+                      type="button"
+                      onClick={() => window.open(item.projectLink, "_blank")}
+                    >
+                      Visit
+                    </button>
                   </div>
                 )}
               </div>
@@ -67,3 +72,4 @@ const Portfolio = () => {
 };
 
 export default Portfolio;
+

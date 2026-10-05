@@ -2,95 +2,147 @@ import React from "react";
 import PageHeaderContent from "../../components/pageHeaderContent";
 import { BsInfoCircleFill } from "react-icons/bs";
 import { DiApple, DiAndroid } from "react-icons/di";
-import { FaDev, FaDatabase } from "react-icons/fa";
+import { FaDev, FaDatabase, FaMobileAlt, FaBrain, FaLaptopCode, FaCode, FaCheckCircle, FaUserCheck } from "react-icons/fa";
 import { Animate } from "react-simple-animate";
-
-import { personalData } from "./utils";
+import { personalData, expertiseData, statsData } from "./utils";
 import "./styles.scss";
+
+const getExpertiseIcon = (iconName) => {
+  switch (iconName) {
+    case "mobile":
+      return <FaMobileAlt className="exp-icon" />;
+    case "ai":
+      return <FaBrain className="exp-icon" />;
+    case "web":
+      return <FaLaptopCode className="exp-icon" />;
+    case "code":
+      return <FaCode className="exp-icon" />;
+    default:
+      return <FaCheckCircle className="exp-icon" />;
+  }
+};
 
 const About = () => {
   return (
     <section className="about" id="about">
       <PageHeaderContent
-        headerText="About me"
+        headerText="About Me"
         icon={<BsInfoCircleFill size={40} />}
       />
 
       <div className="about__content">
-        <div className="about__content__personalWrapper">
+        {/* Left / Center Content */}
+        <div className="about__content__left">
+          {/* Profile Overview Card */}
           <Animate
             play
-            duration={1}
-            delay={0}
-            start={{
-              transform: "translateX(-800px)",
-            }}
-            end={{
-              transform: "translateX(0px)",
-            }}
+            duration={0.8}
+            delay={0.1}
+            start={{ transform: "translateX(-40px)", opacity: 0 }}
+            end={{ transform: "translateX(0px)", opacity: 1 }}
           >
-            <h3 className="developerContent">🚀 Passionate React Developer with 2 Years of Experience</h3>
-            <p>
-            Hi there! 👋 I'm Udit Tyagi, a dedicated Mobile App developer with a focus on React Native and React.js. Over the past two years, I've been immersed in the world of front-end development, creating seamless and intuitive user experiences that leave a lasting impression.
-            </p>
-            <h3 className="developerContent">What I Bring to the Table:</h3>
-            <p><b>🌐 React Mastery:</b> My expertise lies in harnessing the power of React and React Native to build robust and scalable applications. From crafting responsive web interfaces to developing cross-platform mobile apps, I thrive on turning ideas into reality.</p>
-            <p><b>⚙️ Technical Proficiency:</b>  Proficient in the latest tools and technologies, I leverage my skills in HTML, CSS, and JavaScript to architect solutions that not only meet but exceed client expectations.</p>
-            <p><b>🛠️ Problem Solver:</b>   I enjoy the challenges that coding presents, and I take pride in my ability to find innovative solutions. Every project is an opportunity to learn and grow, and I approach each one with enthusiasm and a commitment to excellence.</p>
-            <p><b>👥 Collaborative Spirit:</b> I understand the importance of effective collaboration in the development process. Whether working with cross-functional teams or collaborating closely with clients, I value open communication and teamwork to achieve project success.</p>
-            <h3 className="developerContent">Projects That Define Me:</h3>
-            <p><b>📱 Mobile Excellence:</b>  Developed cutting-edge mobile applications using React Native, ensuring a seamless user experience across iOS and Android platforms.</p>
-            <p><b>💻 Web Wonders:</b>  Designed and implemented responsive web applications with React.js, showcasing a keen eye for design and a commitment to user-centric solutions.</p>
+            <div className="about-hero-card">
+              <div className="badge-wrapper">
+                <span className="hero-badge">
+                  <FaUserCheck className="badge-icon" /> Full Stack & AI Mobile Developer
+                </span>
+              </div>
+              <h3 className="about-title">
+                Passionate Developer Crafting High-Performance Mobile & AI Applications
+              </h3>
+              <p className="about-intro">
+                Hi there! 👋 I'm <strong>Udit Tyagi</strong>, a dedicated Software Engineer specializing in <strong>React Native</strong>, <strong>Next.js/React</strong>, and <strong>Generative AI solutions</strong>. With over 2 years of hands-on industry experience, I build intuitive cross-platform applications and intelligent digital workflows that elevate user experiences.
+              </p>
+            </div>
           </Animate>
+
+          {/* Key Expertise Grid */}
           <Animate
             play
-            duration={1}
-            delay={0}
-            start={{
-              transform: "translateX(500px)",
-            }}
-            end={{
-              transform: "translateX(0px)",
-            }}
+            duration={0.8}
+            delay={0.2}
+            start={{ transform: "translateY(30px)", opacity: 0 }}
+            end={{ transform: "translateY(0px)", opacity: 1 }}
           >
-            <h3 className="personalContent">Personal Information</h3>
-            <ul>
-              {personalData.map((item, key) => (
-                <li key={key}>
-                  <span className="title">{item.label}</span>
-                  <span className="value">{item.value}</span>
-                </li>
-              ))}
-            </ul>
+            <div className="expertise-section">
+              <h3 className="section-subtitle">What I Bring to the Table</h3>
+              <div className="expertise-grid">
+                {expertiseData.map((item, idx) => (
+                  <div key={idx} className="expertise-card">
+                    <div className="expertise-card__icon-wrapper">
+                      {getExpertiseIcon(item.icon)}
+                    </div>
+                    <div className="expertise-card__content">
+                      <h4 className="expertise-title">{item.title}</h4>
+                      <p className="expertise-desc">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Animate>
+
+          {/* Personal Info Grid */}
+          <Animate
+            play
+            duration={0.8}
+            delay={0.3}
+            start={{ transform: "translateY(30px)", opacity: 0 }}
+            end={{ transform: "translateY(0px)", opacity: 1 }}
+          >
+            <div className="personal-info-section">
+              <h3 className="section-subtitle">Personal Details</h3>
+              <div className="personal-info-grid">
+                {personalData.map((item, key) => (
+                  <div key={key} className="personal-info-item">
+                    <span className="info-label">{item.label}</span>
+                    <span className="info-val">{item.value}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </Animate>
         </div>
-        <div className="about__content__servicesWrapper">
+
+        {/* Right Content / Tech Orbit & Stats */}
+        <div className="about__content__right">
           <Animate
             play
-            duration={1}
-            delay={0}
-            start={{
-              transform: "translateX(500px)",
-            }}
-            end={{
-              transform: "translateX(0px)",
-            }}
+            duration={0.8}
+            delay={0.2}
+            start={{ transform: "translateX(40px)", opacity: 0 }}
+            end={{ transform: "translateX(0px)", opacity: 1 }}
           >
-            <div className="about__content__servicesWrapper__innerContent">
-              <div>
-                <DiApple size={60} color="var(--selected-theme-main-color)" />
+            <div className="tech-orbit-wrapper">
+              <h4 className="orbit-title">Core Technology Stack</h4>
+              <div className="tech-orbit-circle">
+                <div className="orbit-center">
+                  <span>Full-Stack</span>
+                  <span className="orbit-center-ai">& AI</span>
+                </div>
+
+                <div className="orbit-node node-1" title="Apple iOS">
+                  <DiApple size={36} />
+                </div>
+                <div className="orbit-node node-2" title="Databases & Cloud">
+                  <FaDatabase size={30} />
+                </div>
+                <div className="orbit-node node-3" title="Android">
+                  <DiAndroid size={36} />
+                </div>
+                <div className="orbit-node node-4" title="AI & Web Development">
+                  <FaDev size={32} />
+                </div>
               </div>
-              <div>
-                <FaDatabase
-                  size={60}
-                  color="var(--selected-theme-main-color)"
-                />
-              </div>
-              <div>
-                <DiAndroid size={60} color="var(--selected-theme-main-color)" />
-              </div>
-              <div>
-                <FaDev size={60} color="var(--selected-theme-main-color)" />
+
+              {/* Stats highlights */}
+              <div className="stats-badges-container">
+                {statsData.map((stat, sIdx) => (
+                  <div key={sIdx} className="stat-badge">
+                    <span className="stat-count">{stat.count}</span>
+                    <span className="stat-label">{stat.label}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </Animate>
@@ -101,3 +153,4 @@ const About = () => {
 };
 
 export default About;
+

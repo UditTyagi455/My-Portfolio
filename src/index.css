@@ -1,49 +1,76 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap");
 
 :root {
-  --selected-theme-background-color: var(--cyan-theme-background-color);
+  /* Default active theme variables */
   --selected-theme-main-color: var(--cyan-theme-main-color);
-  --selected-theme-sub-text-color: var(--cyan-theme-sub-text-color);
-  --selected-theme-nav-background-color: var(--cyan-theme-nav-background-color);
+  --selected-theme-background-color: var(--dark-mode-background-color);
+  --selected-theme-nav-background-color: var(--dark-mode-nav-background-color);
+  --selected-theme-sub-text-color: var(--dark-mode-text-color);
+  --selected-theme-card-background: var(--dark-mode-card-background);
+  --selected-theme-card-border: var(--dark-mode-card-border);
+  --selected-theme-item-subtext: var(--dark-mode-subtext-color);
+  --selected-theme-input-bg: var(--dark-mode-input-bg);
+  --selected-theme-shadow: var(--dark-mode-shadow);
 
-  /* Cyber Cyan (Default AI / Tech) */
-  --cyan-theme-background-color: #0d1117;
-  --cyan-theme-main-color: #00f2fe;
-  --cyan-theme-sub-text-color: #ffffff;
-  --cyan-theme-nav-background-color: #080b0f;
+  /* Dark Mode Base Tokens */
+  --dark-mode-background-color: #0d1117;
+  --dark-mode-nav-background-color: #080b0f;
+  --dark-mode-text-color: #ffffff;
+  --dark-mode-subtext-color: #cfd4dc;
+  --dark-mode-card-background: rgba(22, 24, 28, 0.88);
+  --dark-mode-card-border: rgba(255, 255, 255, 0.12);
+  --dark-mode-input-bg: rgba(0, 0, 0, 0.35);
+  --dark-mode-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+
+  /* Light Mode Base Tokens */
+  --light-mode-background-color: #f6f8fa;
+  --light-mode-nav-background-color: #ffffff;
+  --light-mode-text-color: #1a202c;
+  --light-mode-subtext-color: #4a5568;
+  --light-mode-card-background: rgba(255, 255, 255, 0.95);
+  --light-mode-card-border: rgba(0, 0, 0, 0.1);
+  --light-mode-input-bg: rgba(255, 255, 255, 0.9);
+  --light-mode-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+
+  /* Cyber Cyan */
+  --cyan-theme-main-color: #00bcd4;
 
   /* Neon Purple / Violet */
-  --purple-theme-background-color: #0d1117;
-  --purple-theme-main-color: #a855f7;
-  --purple-theme-sub-text-color: #ffffff;
-  --purple-theme-nav-background-color: #080b0f;
+  --purple-theme-main-color: #8b5cf6;
 
   /* Neon Mint / Emerald */
-  --green-theme-background-color: #0d1117;
-  --green-theme-main-color: #00f5a0;
-  --green-theme-sub-text-color: #ffffff;
-  --green-theme-nav-background-color: #080b0f;
+  --green-theme-main-color: #10b981;
 
   /* Solar Amber / Gold */
-  --yellow-theme-background-color: #0d1117;
   --yellow-theme-main-color: #f59e0b;
-  --yellow-theme-sub-text-color: #ffffff;
-  --yellow-theme-nav-background-color: #080b0f;
 
-  /* Electric Rose / Cyber Crimson */
-  --red-theme-background-color: #0d1117;
-  --red-theme-main-color: #ff2a6d;
-  --red-theme-sub-text-color: #ffffff;
-  --red-theme-nav-background-color: #080b0f;
+  /* Cyber Rose */
+  --red-theme-main-color: #f43f5e;
 
   /* Sapphire Blue */
-  --blue-theme-background-color: #0d1117;
-  --blue-theme-main-color: #38bdf8;
-  --blue-theme-sub-text-color: #ffffff;
-  --blue-theme-nav-background-color: #080b0f;
+  --blue-theme-main-color: #0284c7;
 
   --font-base: "Roboto Slab", serif;
 }
+
+[data-theme-mode="light"] {
+  --cyan-theme-main-color: #0891b2;
+  --purple-theme-main-color: #7c3aed;
+  --green-theme-main-color: #059669;
+  --yellow-theme-main-color: #d97706;
+  --red-theme-main-color: #e11d48;
+  --blue-theme-main-color: #2563eb;
+}
+
+[data-theme-mode="dark"] {
+  --cyan-theme-main-color: #00f2fe;
+  --purple-theme-main-color: #a855f7;
+  --green-theme-main-color: #00f5a0;
+  --yellow-theme-main-color: #f59e0b;
+  --red-theme-main-color: #ff2a6d;
+  --blue-theme-main-color: #38bdf8;
+}
+
 
 
 * {
