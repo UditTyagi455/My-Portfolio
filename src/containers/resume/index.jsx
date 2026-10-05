@@ -1,5 +1,5 @@
 import React from "react";
-import { FaBlackTie } from "react-icons/fa";
+import { FaBlackTie, FaGraduationCap, FaCalendarAlt, FaMapMarkerAlt, FaCode } from "react-icons/fa";
 import { MdWork } from "react-icons/md";
 import PageHeaderContent from "../../components/pageHeaderContent";
 import {
@@ -18,74 +18,95 @@ const Resume = () => {
         icon={<FaBlackTie size={40} />}
       />
       <div className="timeline">
+        {/* Experience Section */}
         <div className="timeline__experience">
           <h3 className="timeline__experience__header-text">Experience</h3>
+
+          {/* Fallback / Mobile Cards */}
           <div className="show-me">
-            {data.experience.map((item) => {
-              return (
-                <div
-                  style={{
-                    border: "1.5px solid var(--selected-theme-main-color)",
-                    padding: "25px",
-                    margin: 15,
-                  }}
-                >
-                  <div syle={{ color: "white" }}>
-                    <h3 style={{ color: "var(--selected-theme-main-color)", fontSize: "20px" }}>
-                      {item.title}
-                    </h3>
-                    <h4 style={{ color: "white", fontSize: "15px" }}>
-                      {item.subTitle}
-                    </h4>
+            {data.experience.map((item, index) => (
+              <div key={index} className="resume-card">
+                <div className="resume-card__header">
+                  <h3 className="resume-card__title">{item.title}</h3>
+                  <h4 className="resume-card__subtitle">
+                    <FaMapMarkerAlt className="icon-sub" /> {item.subTitle}
+                  </h4>
+                  <div className="resume-card__date-badge">
+                    <FaCalendarAlt className="icon-calendar" /> {item.timeLine}
                   </div>
-                  <ul className="vertical-timeline-element-description-wrapper">
-                    {item.description.map((item, i) => (
-                      <li
-                        key={i}
-                        style={{
-                          color: "white",
-                          fontSize: "15px",
-                          marginTop: "15px",
-                        }}
-                      >
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
                 </div>
-              );
-            })}
+
+                {item.skills && (
+                  <div className="resume-card__skills">
+                    {item.skills.map((skill, sIdx) => (
+                      <span key={sIdx} className="skill-pill">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                <ul className="resume-card__description-list">
+                  {item.description.map((desc, i) => (
+                    <li key={i}>{desc}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
 
+          {/* Desktop Vertical Timeline */}
           <VerticalTimeline
             layout="1-column"
             lineColor="var(--selected-theme-main-color)"
             className="mobile-mode"
           >
-            {data.experience.map((item) => (
+            {data.experience.map((item, index) => (
               <VerticalTimelineElement
-                key={item.title}
-                className="timeline__experience__vertical-timeline-component"
+                key={index}
+                className="timeline__experience__vertical-timeline-component resume-timeline-element"
                 contentStyle={{
-                  background: "none",
-                  color: "var(--selected-theme-main-color)",
+                  background: "rgba(24, 24, 24, 0.75)",
+                  backdropFilter: "blur(12px)",
+                  WebkitBackdropFilter: "blur(12px)",
+                  color: "var(--selected-theme-sub-text-color)",
                   border: "1.5px solid var(--selected-theme-main-color)",
+                  borderRadius: "14px",
+                  boxShadow: "0 8px 30px rgba(0, 0, 0, 0.4)",
+                  padding: "24px 28px",
+                }}
+                contentArrowStyle={{
+                  borderRight: "7px solid var(--selected-theme-main-color)",
                 }}
                 date={item.timeLine}
                 iconStyle={{
-                  background: "#181818",
+                  background: "#121212",
                   color: "var(--selected-theme-main-color)",
+                  boxShadow: "0 0 0 4px var(--selected-theme-main-color), inset 0 2px 0 rgba(0, 0, 0, 0.2), 0 3px 0 4px rgba(0, 0, 0, 0.05)",
                 }}
                 icon={<MdWork />}
               >
-                <div>
+                <div className="timeline-content-inner">
                   <div className="vertical-timeline-element-title-wrapper">
-                    <h3>{item.title}</h3>
-                    <h4>{item.subTitle}</h4>
+                    <h3 className="role-title">{item.title}</h3>
+                    <h4 className="company-title">
+                      <FaMapMarkerAlt className="icon-sub" /> {item.subTitle}
+                    </h4>
                   </div>
+
+                  {item.skills && (
+                    <div className="resume-card__skills">
+                      {item.skills.map((skill, sIdx) => (
+                        <span key={sIdx} className="skill-pill">
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+
                   <ul className="vertical-timeline-element-description-wrapper">
-                    {item.description.map((item, i) => (
-                      <li key={i}>{item}</li>
+                    {item.description.map((desc, i) => (
+                      <li key={i}>{desc}</li>
                     ))}
                   </ul>
                 </div>
@@ -93,72 +114,111 @@ const Resume = () => {
             ))}
           </VerticalTimeline>
         </div>
+
+        {/* Education Section */}
         <div className="timeline__education">
           <h3 className="timeline__education__header-text">Education</h3>
 
+          {/* Fallback / Mobile Cards */}
           <div className="show-me">
-            {data.education.map((item) => {
-              return (
-                <div
-                  style={{
-                    border: "1.5px solid var(--selected-theme-main-color)",
-                    padding: "20px",
-                    margin: 15,
-                  }}
-                >
-                  <div syle={{ color: "white" }}>
-                    <h3 style={{ color: "var(--selected-theme-main-color)", fontSize: "20px" }}>
-                      {item.title}
-                    </h3>
-                    <h4 style={{ color: "white", fontSize: "15px" }}>
-                      {item.subTitle}
-                    </h4>
+            {data.education.map((item, index) => (
+              <div key={index} className="resume-card">
+                <div className="resume-card__header">
+                  <h3 className="resume-card__title">{item.stream}</h3>
+                  <h4 className="resume-card__subtitle">
+                    <FaMapMarkerAlt className="icon-sub" /> {item.title}, {item.subTitle}
+                  </h4>
+                  <div className="resume-card__date-badge">
+                    <FaCalendarAlt className="icon-calendar" /> {item.timeLine}
                   </div>
-                  <p
-                    style={{ color: "white", fontSize: "15px", marginTop: 15 }}
-                  >
-                    {item.stream}
-                  </p>
-                  <p style={{ color: "white", fontSize: "15px" }}>
-                    {item.description}
-                  </p>
                 </div>
-              );
-            })}
+
+                <div className="resume-card__grade-badge">
+                  <FaCode className="icon-code" /> {item.description}
+                </div>
+
+                {item.skills && (
+                  <div className="resume-card__skills">
+                    {item.skills.map((skill, sIdx) => (
+                      <span key={sIdx} className="skill-pill">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                {item.highlights && (
+                  <ul className="resume-card__description-list">
+                    {item.highlights.map((h, i) => (
+                      <li key={i}>{h}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            ))}
           </div>
+
+          {/* Desktop Vertical Timeline */}
           <VerticalTimeline
             layout="1-column"
             lineColor="var(--selected-theme-main-color)"
             className="mobile-mode"
           >
-            {data.education.map((item) => (
+            {data.education.map((item, index) => (
               <VerticalTimelineElement
-                key={item.title}
-                className="timeline__education__vertical-timeline-component"
+                key={index}
+                className="timeline__education__vertical-timeline-component resume-timeline-element"
                 contentStyle={{
-                  background: "none",
-                  color: "var(--selected-theme-main-color)",
+                  background: "rgba(24, 24, 24, 0.75)",
+                  backdropFilter: "blur(12px)",
+                  WebkitBackdropFilter: "blur(12px)",
+                  color: "var(--selected-theme-sub-text-color)",
                   border: "1.5px solid var(--selected-theme-main-color)",
+                  borderRadius: "14px",
+                  boxShadow: "0 8px 30px rgba(0, 0, 0, 0.4)",
+                  padding: "24px 28px",
                 }}
-                date="2020 - 2022"
+                contentArrowStyle={{
+                  borderRight: "7px solid var(--selected-theme-main-color)",
+                }}
+                date={item.timeLine}
                 iconStyle={{
-                  background: "#181818",
+                  background: "#121212",
                   color: "var(--selected-theme-main-color)",
+                  boxShadow: "0 0 0 4px var(--selected-theme-main-color), inset 0 2px 0 rgba(0, 0, 0, 0.2), 0 3px 0 4px rgba(0, 0, 0, 0.05)",
                 }}
-                icon={<MdWork />}
+                icon={<FaGraduationCap />}
               >
-                <div className="vertical-timeline-element-title-wrapper">
-                  <h4>
-                    {item.title},{item.subTitle}
-                  </h4>
-                  {/* <h4>{item.subTitle}</h4> */}
+                <div className="timeline-content-inner">
+                  <div className="vertical-timeline-element-title-wrapper">
+                    <h3 className="role-title">{item.stream}</h3>
+                    <h4 className="company-title">
+                      <FaMapMarkerAlt className="icon-sub" /> {item.title}, {item.subTitle}
+                    </h4>
+                  </div>
+
+                  <div className="resume-card__grade-badge">
+                    <FaCode className="icon-code" /> {item.description}
+                  </div>
+
+                  {item.skills && (
+                    <div className="resume-card__skills">
+                      {item.skills.map((skill, sIdx) => (
+                        <span key={sIdx} className="skill-pill">
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+
+                  {item.highlights && (
+                    <ul className="vertical-timeline-element-description-wrapper">
+                      {item.highlights.map((h, i) => (
+                        <li key={i}>{h}</li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
-                <p className="vertical-timeline-element-stream-wrapper">
-                  {item.stream}
-                </p>
-                <p className="vertical-timeline-element-description-wrapper">
-                  {item.description}
-                </p>
               </VerticalTimelineElement>
             ))}
           </VerticalTimeline>
@@ -169,3 +229,4 @@ const Resume = () => {
 };
 
 export default Resume;
+

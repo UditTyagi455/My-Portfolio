@@ -1,59 +1,91 @@
 import React, { useEffect, useState } from "react";
 import { ImCog } from "react-icons/im";
+import { FaCheck } from "react-icons/fa";
 import setTheme from "../../helpers/theme";
-import './styles.scss';
+import "./styles.scss";
+
 const colorsArray = [
   {
-    id: "yellow",
-    bgColor: "#ff7b00",
+    id: "cyan",
+    name: "Cyber Cyan",
+    bgColor: "#00f2fe",
   },
   {
-    id: "red",
-    bgColor: "#E82A2A",
+    id: "purple",
+    name: "Electric Violet",
+    bgColor: "#a855f7",
   },
   {
     id: "green",
-    bgColor: "#6ac045",
+    name: "Neon Mint",
+    bgColor: "#00f5a0",
+  },
+  {
+    id: "yellow",
+    name: "Solar Gold",
+    bgColor: "#f59e0b",
+  },
+  {
+    id: "red",
+    name: "Cyber Rose",
+    bgColor: "#ff2a6d",
   },
   {
     id: "blue",
-    bgColor: "#5078ff",
+    name: "Sapphire Blue",
+    bgColor: "#38bdf8",
   },
 ];
 
 const Theme = () => {
-  const [theme, setCurrentTheme] = useState("yellow");
+  const [theme, setCurrentTheme] = useState(() => {
+    return localStorage.getItem("portfolio-selected-theme") || "cyan";
+  });
   const [toggle, setToggle] = useState(false);
 
   const handleToggleTheme = (currentId) => {
     setCurrentTheme(currentId);
-    setToggle(false);
+    localStorage.setItem("portfolio-selected-theme", currentId);
   };
 
-  useEffect(()=>{
-   setTheme(theme)
-  },[theme])
-
+  useEffect(() => {
+    setTheme(theme);
+  }, [theme]);
 
   return (
     <div className={`theme-wrapper ${toggle ? "active" : ""}`}>
-      <div className="theme-wrapper__toggle-icon">
-        <ImCog onClick={() => setToggle(!toggle)} size={40} />
+      <div
+        className="theme-wrapper__toggle-icon"
+        onClick={() => setToggle(!toggle)}
+        title="Theme Settings"
+      >
+        <ImCog size={22} />
       </div>
       <div className="theme-wrapper__menu">
-        <h4>Choose Theme</h4>
-        <ul>
-          {colorsArray.map((item, key) => (
-            <li
+        <h4 className="theme-menu-title">Accent Palette</h4>
+        <div className="color-swatches-grid">
+          {colorsArray.map((item) => (
+            <button
+              key={item.id}
+              className={`color-swatch-btn ${theme === item.id ? "active-theme" : ""}`}
               onClick={() => handleToggleTheme(item.id)}
-              key={key}
-              style={{ background: item.bgColor }}
-            />
+              title={item.name}
+              style={{ "--swatch-color": item.bgColor }}
+            >
+              <span
+                className="color-dot"
+                style={{ backgroundColor: item.bgColor }}
+              >
+                {theme === item.id && <FaCheck className="check-icon" />}
+              </span>
+              <span className="color-name">{item.name}</span>
+            </button>
           ))}
-        </ul>
+        </div>
       </div>
     </div>
   );
 };
 
 export default Theme;
+

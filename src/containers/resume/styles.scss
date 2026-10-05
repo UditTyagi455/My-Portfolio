@@ -1,16 +1,17 @@
 .resume {
   height: 100%;
+  padding-bottom: 40px;
 }
 
 .timeline {
   display: flex;
   width: 100%;
-  padding: 20px;
+  padding: 20px 40px;
+  gap: 30px;
 
   &__experience,
   &__education {
     width: 50%;
-    gap: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,22 +19,24 @@
     &__header-text {
       display: inline-block;
       color: var(--selected-theme-sub-text-color);
-      font-size: 22px;
-      font-weight: 600;
-      line-height: 1rem;
-      letter-spacing: 0.5px;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1.4;
+      letter-spacing: 1.5px;
       position: relative;
       text-transform: uppercase;
-      padding: 5px 10px;
+      padding: 6px 16px;
+      margin-bottom: 30px;
       border-bottom: 2px solid var(--selected-theme-main-color);
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     }
 
     &__header-text::before,
     &__header-text::after {
       position: absolute;
       content: "";
-      width: 2px;
-      height: 5px;
+      width: 3px;
+      height: 8px;
       background-color: var(--selected-theme-main-color);
       bottom: -1px;
     }
@@ -45,85 +48,289 @@
     &__header-text::after {
       right: 0;
     }
+  }
+}
 
-    .vertical-timeline-element {
-      padding: 0px 0px 30px 0px;
-      &:last-child {
-        padding: 0px;
+/* Timeline Custom Styles */
+.vertical-timeline {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+
+  &::before {
+    background: var(--selected-theme-main-color) !important;
+    box-shadow: 0 0 12px var(--selected-theme-main-color);
+  }
+}
+
+.resume-timeline-element {
+  margin-bottom: 30px !important;
+
+  .vertical-timeline-element-content {
+    transition: all 0.3s ease;
+    border: 1px solid var(--selected-theme-main-color) !important;
+    background: rgba(22, 24, 28, 0.85) !important;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: 12px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45) !important;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.55), 0 0 18px rgba(255, 255, 255, 0.08) !important;
+      border-color: #ffffff !important;
+    }
+
+    .vertical-timeline-element-date {
+      font-size: 14px !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.5px;
+      color: var(--selected-theme-main-color) !important;
+      padding: 6px 12px;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: inline-block;
+      margin-top: 5px;
+    }
+  }
+
+  .vertical-timeline-element-icon {
+    svg {
+      width: 22px;
+      height: 22px;
+      left: 50%;
+      top: 50%;
+      margin-left: -11px;
+      margin-top: -11px;
+    }
+  }
+}
+
+/* Inner content styling */
+.timeline-content-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  .vertical-timeline-element-title-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    .role-title {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--selected-theme-main-color);
+      letter-spacing: 0.3px;
+      line-height: 1.3;
+    }
+
+    .company-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: #e0e0e0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+
+      .icon-sub {
+        color: var(--selected-theme-main-color);
+        font-size: 13px;
       }
+    }
+  }
 
-      .vertical-timeline-element-content {
-        box-shadow: none;
-        padding: 20px 20px;
+  .vertical-timeline-element-description-wrapper {
+    list-style: none;
+    padding: 0;
+    margin: 4px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 
-        .vertical-timeline-element-date {
-          font-size: 2rem;
-          color: var(--selected-theme-sub-text-color);
-          opacity: 1;
-        }
-      }
+    li {
+      position: relative;
+      padding-left: 20px;
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: #cfd4dc;
 
-      .vertical-timeline-element-content-arrow {
-        display: none;
-      }
-
-      .vertical-timeline-element-title-wrapper {
-        display: flex;
-        align-items: center;
-
-        h3,
-        h4 {
-          font-size: 15px;
-          color: var(--selected-theme-sub-text-color);
-        }
-
-        h4 {
-          margin-left: 8px;
-        }
-      }
-      .vertical-timeline-element-stream-wrapper{
-        margin: 10px 0px 0px 0px;
-        font-size: 18px;
-        color: var(--selected-theme-sub-text-color);
-      }
-      .vertical-timeline-element-description-wrapper {
-        font-size: 18px;
-        color: var(--selected-theme-sub-text-color);
-        margin-top: 20px;
-        li{
-          padding-bottom: 10px;
-        }
+      &::before {
+        content: "▹";
+        position: absolute;
+        left: 0;
+        top: -1px;
+        color: var(--selected-theme-main-color);
+        font-size: 15px;
+        font-weight: bold;
       }
     }
   }
 }
+
+/* Skill pills */
+.resume-card__skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+
+  .skill-pill {
+    background: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    letter-spacing: 0.3px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: var(--selected-theme-main-color);
+      color: var(--selected-theme-main-color);
+    }
+  }
+}
+
+/* Grade badge */
+.resume-card__grade-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--selected-theme-main-color);
+  background: rgba(0, 0, 0, 0.35);
+  padding: 4px 12px;
+  border-radius: 6px;
+  border: 1px dashed var(--selected-theme-main-color);
+  width: fit-content;
+
+  .icon-code {
+    font-size: 14px;
+  }
+}
+
+/* Fallback & Mobile card styles */
 .show-me {
   display: none;
+  width: 100%;
+}
+
+.resume-card {
+  background: rgba(22, 24, 28, 0.9);
+  border: 1.5px solid var(--selected-theme-main-color);
+  border-radius: 14px;
+  padding: 22px;
+  margin: 15px 0;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  &__title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--selected-theme-main-color);
+  }
+
+  &__subtitle {
+    font-size: 14px;
+    font-weight: 500;
+    color: #e0e0e0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    .icon-sub {
+      color: var(--selected-theme-main-color);
+    }
+  }
+
+  &__date-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12.5px;
+    color: #b0b8c4;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 3px 10px;
+    border-radius: 10px;
+    width: fit-content;
+    margin-top: 2px;
+
+    .icon-calendar {
+      color: var(--selected-theme-main-color);
+    }
+  }
+
+  &__description-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    li {
+      position: relative;
+      padding-left: 20px;
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: #cfd4dc;
+
+      &::before {
+        content: "▹";
+        position: absolute;
+        left: 0;
+        top: -1px;
+        color: var(--selected-theme-main-color);
+        font-size: 15px;
+        font-weight: bold;
+      }
+    }
+  }
 }
 
 .mobile-mode {
   display: block;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 900px) {
   .timeline {
     flex-direction: column;
-    width: 100%;
+    padding: 15px;
+    gap: 20px;
 
     .mobile-mode {
       display: none;
     }
+
     .show-me {
-      display: block;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
     }
 
-    // .timeline__experience__vertical-timeline-component{
-    //   display: flex;
-    // }
     &__experience,
     &__education {
       width: 100%;
-      gap: 2.5rem;
     }
   }
 }
+

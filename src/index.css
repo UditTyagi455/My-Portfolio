@@ -1,39 +1,50 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap");
 
 :root {
-  --selected-theme-background-color: var(--yellow-theme-background-color);
-  --selected-theme-main-color: var(--yellow-theme-main-color);
-  --selected-theme-sub-text-color: var(--yellow-theme-sub-text-color);
-  --selected-theme-nav-background-color: var(
-    --yellow-theme-nav-background-color
-  );
+  --selected-theme-background-color: var(--cyan-theme-background-color);
+  --selected-theme-main-color: var(--cyan-theme-main-color);
+  --selected-theme-sub-text-color: var(--cyan-theme-sub-text-color);
+  --selected-theme-nav-background-color: var(--cyan-theme-nav-background-color);
 
-  /* primary color yellow */
-  --yellow-theme-background-color: #1d1d1d;
-  --yellow-theme-main-color: #ff7b00;
-  --yellow-theme-sub-text-color: #ffffff;
-  --yellow-theme-nav-background-color: #181818;
+  /* Cyber Cyan (Default AI / Tech) */
+  --cyan-theme-background-color: #0d1117;
+  --cyan-theme-main-color: #00f2fe;
+  --cyan-theme-sub-text-color: #ffffff;
+  --cyan-theme-nav-background-color: #080b0f;
 
-  /* secondary color red */
-  --red-theme-background-color: #1d1d1d;
-  --red-theme-main-color: #ff5c8a;
-  --red-theme-sub-text-color: #ffffff;
-  --red-theme-nav-background-color: #181818;
+  /* Neon Purple / Violet */
+  --purple-theme-background-color: #0d1117;
+  --purple-theme-main-color: #a855f7;
+  --purple-theme-sub-text-color: #ffffff;
+  --purple-theme-nav-background-color: #080b0f;
 
-  /* secondary color green */
-  --green-theme-background-color: #1d1d1d;
-  --green-theme-main-color: #52b788;
+  /* Neon Mint / Emerald */
+  --green-theme-background-color: #0d1117;
+  --green-theme-main-color: #00f5a0;
   --green-theme-sub-text-color: #ffffff;
-  --green-theme-nav-background-color: #181818;
+  --green-theme-nav-background-color: #080b0f;
 
- /* secondary color blue */
-  --blue-theme-background-color: #1d1d1d;
-  --blue-theme-main-color: #0096c7;
+  /* Solar Amber / Gold */
+  --yellow-theme-background-color: #0d1117;
+  --yellow-theme-main-color: #f59e0b;
+  --yellow-theme-sub-text-color: #ffffff;
+  --yellow-theme-nav-background-color: #080b0f;
+
+  /* Electric Rose / Cyber Crimson */
+  --red-theme-background-color: #0d1117;
+  --red-theme-main-color: #ff2a6d;
+  --red-theme-sub-text-color: #ffffff;
+  --red-theme-nav-background-color: #080b0f;
+
+  /* Sapphire Blue */
+  --blue-theme-background-color: #0d1117;
+  --blue-theme-main-color: #38bdf8;
   --blue-theme-sub-text-color: #ffffff;
-  --blue-theme-nav-background-color: #181818;
+  --blue-theme-nav-background-color: #080b0f;
 
   --font-base: "Roboto Slab", serif;
 }
+
 
 * {
   box-sizing: border-box;
