@@ -1,12 +1,13 @@
-import ImageOne from "../../images/imwow.png";
+import ImageOne from "../../images/imwow.avif";
 import ImageTwo from "../../images/image2.png";
 import ImageThree from "../../images/image3.jpg";
 import ImageFour from "../../images/image4.webp";
-import ImageFive from "../../images/image5.jpg";
-import ImageSix from "../../images/scanmaze.png";
+import ImageFive from "../../images/pointerprecise.avif";
+import ImageSix from "../../images/scanmaze.avif";
 import ImageTycho from "../../images/tycho.png";
-import ImageDigitalSeller from "../../images/digitalseller.png";
-import Recone3d from "../../images/Recone-3d.png";
+import ImageDigitalSeller from "../../images/digital-seller.avif";
+import Recone3d from "../../images/Recone-3d.avif";
+import Utours from "../../images/utours.avif";
 
 export const filterOptions = [
   {
@@ -75,6 +76,37 @@ export const portfolioData = [
     image: Recone3d,
   },
   {
+    sectionId: 3,
+    category: "React JS",
+    projectName: "Utours",
+    tagline: "Tour and Travelling",
+    description: "A travel agency offering outbound and inbound tour packages, holiday deals (such as trips to Qatar, Tbilisi, and the Maldives), and flight coordination",
+    projectLink: "https://visitor-test.etulintu.com/",
+    techStack: ["Next.js", "React", "Node.js", "REST APIs"],
+    image: Utours,
+    featured: true,
+  },
+  {
+    sectionId: 3,
+    category: "React JS",
+    projectName: "Pointprecise",
+    tagline: "3D Photogrammetry & Geospatial Web App",
+    description: "Advanced web application for 3D measurement, cloud point rendering, and industrial spatial modeling.",
+    projectLink: "",
+    techStack: ["React JS", "TypeScript", "SCSS", "WebGL"],
+    image: ImageFive,
+  },
+  {
+    sectionId: 3,
+    category: "React JS",
+    projectName: "ScanAmaze",
+    tagline: "Automated 3D Model Generation Platform",
+    description: "Interactive web solution that transforms photographic sequences into photorealistic 3D digital assets and meshes.",
+    projectLink: "",
+    techStack: ["React JS", "Cloud Processing", "3D Rendering"],
+    image: ImageSix,
+  },
+  {
     sectionId: 2,
     category: "React Native",
     projectName: "VTS 360Capture App",
@@ -103,25 +135,5 @@ export const portfolioData = [
     projectLink: "",
     techStack: ["React Native", "Redux", "Stripe / Payments"],
     image: ImageFour,
-  },
-  {
-    sectionId: 3,
-    category: "React JS",
-    projectName: "Pointprecise",
-    tagline: "3D Photogrammetry & Geospatial Web App",
-    description: "Advanced web application for 3D measurement, cloud point rendering, and industrial spatial modeling.",
-    projectLink: "",
-    techStack: ["React JS", "TypeScript", "SCSS", "WebGL"],
-    image: ImageFive,
-  },
-  {
-    sectionId: 3,
-    category: "React JS",
-    projectName: "ScanAmaze",
-    tagline: "Automated 3D Model Generation Platform",
-    description: "Interactive web solution that transforms photographic sequences into photorealistic 3D digital assets and meshes.",
-    projectLink: "",
-    techStack: ["React JS", "Cloud Processing", "3D Rendering"],
-    image: ImageSix,
-  },
+  }
 ];

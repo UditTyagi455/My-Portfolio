@@ -62,24 +62,6 @@
       font-size: 1.45rem;
       position: relative;
 
-      &::after {
-        content: "";
-        display: block;
-        height: 2.5px;
-        width: 0px;
-        background: transparent;
-        transition: width 0.3s ease, background 0.3s ease;
-        border-radius: 2px;
-        margin-top: 2px;
-      }
-
-      &:hover::after,
-      &.active::after {
-        width: 100%;
-        background: var(--selected-theme-main-color);
-        box-shadow: 0 0 8px var(--selected-theme-main-color);
-      }
-
       &__links {
         color: var(--selected-theme-sub-text-color);
         text-decoration: none;
