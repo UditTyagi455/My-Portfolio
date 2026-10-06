@@ -1,7 +1,6 @@
 import React from "react";
-import { FaBlackTie, FaGraduationCap, FaCalendarAlt, FaMapMarkerAlt, FaCode } from "react-icons/fa";
+import { FaGraduationCap, FaCalendarAlt, FaMapMarkerAlt, FaCode } from "react-icons/fa";
 import { MdWork } from "react-icons/md";
-import PageHeaderContent from "../../components/pageHeaderContent";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
@@ -13,10 +12,10 @@ import "./styles.scss";
 const Resume = () => {
   return (
     <section id="resume" className="resume">
-      <PageHeaderContent
+      {/* <PageHeaderContent
         headerText="My Resume"
         icon={<FaBlackTie size={40} />}
-      />
+      /> */}
       <div className="timeline">
         {/* Experience Section */}
         <div className="timeline__experience">

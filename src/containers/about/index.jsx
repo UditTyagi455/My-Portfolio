@@ -1,6 +1,4 @@
 import React from "react";
-import PageHeaderContent from "../../components/pageHeaderContent";
-import { BsInfoCircleFill } from "react-icons/bs";
 import { DiApple, DiAndroid } from "react-icons/di";
 import { FaDev, FaDatabase, FaMobileAlt, FaBrain, FaLaptopCode, FaCode, FaCheckCircle, FaUserCheck } from "react-icons/fa";
 import { Animate } from "react-simple-animate";
@@ -25,10 +23,10 @@ const getExpertiseIcon = (iconName) => {
 const About = () => {
   return (
     <section className="about" id="about">
-      <PageHeaderContent
+      {/* <PageHeaderContent
         headerText="About Me"
         icon={<BsInfoCircleFill size={40} />}
-      />
+      /> */}
 
       <div className="about__content">
         {/* Left / Center Content */}
@@ -51,7 +49,7 @@ const About = () => {
                 Passionate Developer Crafting High-Performance Mobile & AI Applications
               </h3>
               <p className="about-intro">
-                Hi there! 👋 I'm <strong>Udit Tyagi</strong>, a dedicated Software Engineer specializing in <strong>React Native</strong>, <strong>Next.js/React</strong>, and <strong>Generative AI solutions</strong>. With over 2 years of hands-on industry experience, I build intuitive cross-platform applications and intelligent digital workflows that elevate user experiences.
+                Hi there! 👋 I'm <strong>Udit Tyagi</strong>, a dedicated Software Engineer specializing in <strong>React Native</strong>, <strong>Next.js/React</strong>, and <strong>Generative AI solutions</strong>. With over 4 years of hands-on industry experience, I build intuitive cross-platform applications and intelligent digital workflows that elevate user experiences.
               </p>
             </div>
           </Animate>

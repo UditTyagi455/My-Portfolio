@@ -21,7 +21,7 @@ export const personalData = [
   },
   {
     label: "Experience:",
-    value: "2+ Years Professional",
+    value: "4+ Years Professional",
   },
   {
     label: "Education:",
@@ -57,7 +57,7 @@ export const expertiseData = [
 ];
 
 export const statsData = [
-  { count: "2+", label: "Years Experience" },
+  { count: "4+", label: "Years Experience" },
   { count: "15+", label: "Projects Completed" },
   { count: "100%", label: "Client Satisfaction" },
-];
+];
