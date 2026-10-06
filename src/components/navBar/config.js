@@ -7,27 +7,27 @@ export const navMenus = [
   },
   {
     label: "ABOUT ME",
-    to: "/My-Portfolio/about",
+    to: "/about",
     icon: "about",
   },
   {
     label: "SKILLS",
-    to: "/My-Portfolio/skills",
+    to: "/skills",
     icon: "skills",
   },
   {
     label: "RESUME",
-    to: "/My-Portfolio/resume",
+    to: "/resume",
     icon: "resume",
   },
   {
     label: "PROJECTS",
-    to: "/My-Portfolio/portfolio",
+    to: "/portfolio",
     icon: "projects",
   },
   {
     label: "CONTACT",
-    to: "/My-Portfolio/contact",
+    to: "/contact",
     icon: "contact",
   },
 ];

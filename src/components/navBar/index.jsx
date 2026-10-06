@@ -210,7 +210,7 @@ const Navbar = () => {
               <FaLinkedinIn />
             </a>
             <Link
-              to="/My-Portfolio/contact"
+              to="/contact"
               onClick={() => setClick(false)}
               className="mobile-contact-pill"
             >

@@ -65,7 +65,7 @@ const Home = () => {
     } catch (e) {
       // analytics fallback
     }
-    navigate("/My-Portfolio/contact");
+    navigate("/contact");
   };
 
   return (
