@@ -58,38 +58,48 @@
   &-filter-wrapper {
     display: flex;
     justify-content: center;
-    margin-bottom: 28px;
+    margin-bottom: 24px;
     width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 4px 4px 8px;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 
   &-filter-tabs {
     display: inline-flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 6px 10px;
+    gap: 8px;
+    padding: 5px 8px;
     background: var(--selected-theme-card-background);
     border: 1.5px solid var(--selected-theme-card-border);
     border-radius: 30px;
     box-shadow: var(--selected-theme-shadow);
     list-style: none;
+    width: max-content;
 
     .filter-pill {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 8px 18px;
-      border-radius: 24px;
-      font-size: 13.5px;
+      gap: 7px;
+      padding: 7px 16px;
+      border-radius: 20px;
+      font-size: 13px;
       font-weight: 700;
       color: var(--selected-theme-item-subtext);
       cursor: pointer;
       transition: all 0.25s ease;
       user-select: none;
+      white-space: nowrap;
+      flex-shrink: 0;
 
       .filter-count {
-        font-size: 11px;
+        font-size: 10.5px;
         padding: 2px 7px;
         border-radius: 10px;
         background: var(--selected-theme-input-bg);
@@ -106,7 +116,7 @@
       &.active {
         background: var(--selected-theme-main-color);
         color: #ffffff;
-        box-shadow: 0 4px 15px rgba(var(--selected-theme-main-color), 0.35);
+        box-shadow: 0 4px 14px rgba(var(--selected-theme-main-color), 0.35);
 
         .filter-count {
           background: rgba(255, 255, 255, 0.25);
@@ -327,10 +337,16 @@
       }
     }
 
+    &-filter-wrapper {
+      justify-content: flex-start;
+      padding: 0 4px 12px;
+      margin-bottom: 16px;
+    }
+
     &-filter-tabs {
-      border-radius: 16px;
+      border-radius: 24px;
       gap: 6px;
-      padding: 5px 8px;
+      padding: 4px 6px;
 
       .filter-pill {
         font-size: 12px;

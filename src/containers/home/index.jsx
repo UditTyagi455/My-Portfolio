@@ -1,6 +1,16 @@
 import React, { useEffect } from "react";
 import { Animate } from "react-simple-animate";
-import { FaLinkedin, FaGithub, FaTwitter, FaPaperPlane, FaDownload } from "react-icons/fa";
+import {
+  FaLinkedin,
+  FaGithub,
+  FaTwitter,
+  FaPaperPlane,
+  FaDownload,
+  FaReact,
+  FaBrain,
+} from "react-icons/fa";
+import { SiNextdotjs } from "react-icons/si";
+import ProfileImg from "../../images/profile.png";
 import "./styles.scss";
 import Mypdf from "../../resume/udit_resume.pdf";
 import { getAnalytics, logEvent } from "firebase/analytics";
@@ -61,95 +71,145 @@ const Home = () => {
   return (
     <section className="home" id="home">
       <div className="home__content-container">
-        {/* Welcome Tag */}
-        <Animate
-          play
-          duration={0.8}
-          delay={0.1}
-          start={{ transform: "translateY(-30px)", opacity: 0 }}
-          end={{ transform: "translateY(0px)", opacity: 1 }}
-        >
-          <div className="home__greeting-badge">
-            <span className="wave-icon">👋</span>
-            <span>Welcome to my digital space</span>
-          </div>
-        </Animate>
+        {/* Left / Main Text Column */}
+        <div className="home__left-content">
+          {/* Welcome Tag */}
+          <Animate
+            play
+            duration={0.8}
+            delay={0.1}
+            start={{ transform: "translateY(-20px)", opacity: 0 }}
+            end={{ transform: "translateY(0px)", opacity: 1 }}
+          >
+            <div className="home__greeting-badge">
+              <span className="wave-icon">👋</span>
+              <span>Full Stack & AI Mobile Developer</span>
+            </div>
+          </Animate>
 
-        {/* Hero Text */}
-        <div className="home__text-wrapper">
-          <h1 className="home__title">
-            Hi, I'm <span className="highlight-name">Udit Tyagi</span>
-          </h1>
-          <h2 className="home__subtitle">Full Stack & AI Mobile Developer</h2>
-          <p className="home__description">
-            Passionate about crafting intelligent mobile experiences with React Native,
-            high-performance web apps, and modern Generative AI integrations.
-          </p>
+          {/* Hero Text */}
+          <div className="home__text-wrapper">
+            <h1 className="home__title">
+              Hi, I'm <span className="highlight-name">Udit Tyagi</span>
+            </h1>
+            <h2 className="home__subtitle">Software Engineer & Mobile Specialist</h2>
+            <p className="home__description">
+              Specializing in <strong>React Native</strong>, <strong>Next.js</strong>, and <strong>Generative AI solutions</strong>. With 4+ years of industry experience, I build intuitive cross-platform applications and scalable digital products.
+            </p>
+          </div>
+
+          {/* CTA Buttons & Social Links */}
+          <Animate
+            play
+            duration={0.8}
+            delay={0.3}
+            start={{ transform: "translateY(30px)", opacity: 0 }}
+            end={{ transform: "translateY(0px)", opacity: 1 }}
+          >
+            <div className="home__actions-wrapper">
+              <div className="home__cta-buttons">
+                <button
+                  type="button"
+                  className="btn btn--primary"
+                  onClick={hireMe}
+                >
+                  <FaPaperPlane className="btn-icon" />
+                  <span>Hire Me</span>
+                </button>
+
+                <a
+                  href={Mypdf}
+                  download="Udit-Resume.pdf"
+                  className="btn btn--secondary"
+                  onClick={downloadResume}
+                >
+                  <FaDownload className="btn-icon" />
+                  <span>Download Resume</span>
+                </a>
+              </div>
+
+              {/* Social Icons */}
+              <div className="home__social-links">
+                <button
+                  type="button"
+                  className="social-icon-btn linkedin"
+                  onClick={() => handleNavigateSocial("linkedin")}
+                  title="LinkedIn"
+                  aria-label="LinkedIn"
+                >
+                  <FaLinkedin />
+                </button>
+                <button
+                  type="button"
+                  className="social-icon-btn github"
+                  onClick={() => handleNavigateSocial("github")}
+                  title="GitHub"
+                  aria-label="GitHub"
+                >
+                  <FaGithub />
+                </button>
+                <button
+                  type="button"
+                  className="social-icon-btn twitter"
+                  onClick={() => handleNavigateSocial("twitter")}
+                  title="Twitter"
+                  aria-label="Twitter"
+                >
+                  <FaTwitter />
+                </button>
+              </div>
+            </div>
+          </Animate>
         </div>
 
-        {/* CTA Buttons & Social Links */}
-        <Animate
-          play
-          duration={1}
-          delay={0.3}
-          start={{ transform: "translateY(40px)", opacity: 0 }}
-          end={{ transform: "translateY(0px)", opacity: 1 }}
-        >
-          <div className="home__actions-wrapper">
-            <div className="home__cta-buttons">
-              <button
-                type="button"
-                className="btn btn--primary"
-                onClick={hireMe}
-              >
-                <FaPaperPlane className="btn-icon" />
-                <span>Hire Me</span>
-              </button>
+        {/* Right Column / Glowing Profile Photo with floating badges */}
+        <div className="home__right-content">
+          <Animate
+            play
+            duration={0.9}
+            delay={0.2}
+            start={{ transform: "scale(0.85)", opacity: 0 }}
+            end={{ transform: "scale(1)", opacity: 1 }}
+          >
+            <div className="home__profile-card">
+              {/* Outer Glow Ring */}
+              <div className="home__profile-glow-ring" />
 
-              <a
-                href={Mypdf}
-                download="Udit-Resume.pdf"
-                className="btn btn--secondary"
-                onClick={downloadResume}
-              >
-                <FaDownload className="btn-icon" />
-                <span>Download Resume</span>
-              </a>
-            </div>
+              {/* Avatar Image Frame */}
+              <div className="home__profile-img-wrapper">
+                <img
+                  src={ProfileImg}
+                  alt="Udit Tyagi - Full Stack & Mobile Developer"
+                  className="home__profile-img"
+                />
+              </div>
 
-            {/* Social Icons */}
-            <div className="home__social-links">
-              <button
-                type="button"
-                className="social-icon-btn linkedin"
-                onClick={() => handleNavigateSocial("linkedin")}
-                title="LinkedIn"
-              >
-                <FaLinkedin />
-              </button>
-              <button
-                type="button"
-                className="social-icon-btn github"
-                onClick={() => handleNavigateSocial("github")}
-                title="GitHub"
-              >
-                <FaGithub />
-              </button>
-              <button
-                type="button"
-                className="social-icon-btn twitter"
-                onClick={() => handleNavigateSocial("twitter")}
-                title="Twitter"
-              >
-                <FaTwitter />
-              </button>
+              {/* Floating Tech Badges */}
+              <div className="floating-badge badge-rn" title="React Native">
+                <FaReact className="badge-icon react-spin" />
+                <span>React Native</span>
+              </div>
+
+              <div className="floating-badge badge-next" title="Next.js">
+                <SiNextdotjs className="badge-icon" />
+                <span>Next.js</span>
+              </div>
+
+              <div className="floating-badge badge-ai" title="AI & Intelligence">
+                <FaBrain className="badge-icon" />
+                <span>AI & GenAI</span>
+              </div>
+
+              <div className="floating-badge badge-exp" title="Experience">
+                <span className="exp-count">4+ Yrs</span>
+                <span className="exp-label">Experience</span>
+              </div>
             </div>
-          </div>
-        </Animate>
+          </Animate>
+        </div>
       </div>
     </section>
   );
 };
 
 export default Home;
-

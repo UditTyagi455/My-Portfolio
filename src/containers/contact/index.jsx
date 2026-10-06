@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import PageHeaderContent from "../../components/pageHeaderContent";
-import { RiContactsFill } from "react-icons/ri";
 import {
   FaEnvelope,
   FaPhoneAlt,
@@ -52,24 +50,55 @@ const Contact = () => {
 
     setLoading(true);
     try {
-      const response = await fetch(
+      const payload = {
+        name: name.trim(),
+        email: email.trim(),
+        subject: subject.trim() || "General Inquiry",
+        description: description.trim(),
+        timestamp: new Date().toISOString(),
+      };
+
+      // 1. Save entry to Firebase Realtime Database
+      const firebaseRequest = fetch(
         "https://portfolio-662e4-default-rtdb.firebaseio.com/contact-us.json",
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({
-            name: name.trim(),
-            email: email.trim(),
-            subject: subject.trim() || "General Inquiry",
-            description: description.trim(),
-            timestamp: new Date().toISOString(),
-          }),
+          body: JSON.stringify(payload),
         }
       );
 
-      if (response.ok) {
+      // 2. Send instant email notification directly to your Gmail
+      // Web3Forms sends submissions straight to your email without a backend
+      const emailRequest = fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "48a6c886-aebc-49e5-b07b-5e2c0ecf5a88", // Replace with your free key from web3forms.com
+          from_name: `${name.trim()} via Portfolio`,
+          subject: `New Portfolio Message: ${subject.trim() || "General Inquiry"}`,
+          name: name.trim(),
+          email: email.trim(),
+          message: description.trim(),
+        }),
+      });
+
+      const [firebaseRes, emailRes] = await Promise.allSettled([
+        firebaseRequest,
+        emailRequest,
+      ]);
+
+      const isFirebaseOk =
+        firebaseRes.status === "fulfilled" && firebaseRes.value.ok;
+      const isEmailOk =
+        emailRes.status === "fulfilled" && emailRes.value.ok;
+
+      if (isFirebaseOk || isEmailOk) {
         setSubmitted(true);
         setName("");
         setEmail("");
@@ -89,10 +118,10 @@ const Contact = () => {
 
   return (
     <section id="contact" className="contact">
-      <PageHeaderContent
+      {/* <PageHeaderContent
         headerText="Contact Me"
         icon={<RiContactsFill size={40} />}
-      />
+      /> */}
 
       <div className="contact__content">
         <div className="contact__header-wrapper">
