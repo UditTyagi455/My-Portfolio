@@ -1,14 +1,21 @@
-.App{
-    height: 100%;
-    &__navbar-wrapper{
-        position: absolute;
-        width: 100%;
-        top: 0;
-    }
-    &__main-content-wrapper{
-        height: calc(100% - 80px);
-        position: absolute;
-        width: 100%;
-        margin-top: 80px;
-    }
+.App {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &__navbar-wrapper {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+  }
+
+  &__main-content-wrapper {
+    flex: 1;
+    min-height: calc(100vh - 75px);
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
 }
